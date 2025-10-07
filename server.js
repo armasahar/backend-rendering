@@ -1,7 +1,7 @@
 import http from "http";
 import fs from "fs";
 
-let port = 9000;
+let PORT = process.env.PORT || 9000;
 let https_port = 443;
 
 let options = {
@@ -125,6 +125,6 @@ let server = http.createServer((req, res) => {
   }
 });
 
-server.listen(port, () => {
-  console.log(`Server is running at ${port}`);
+server.listen(PORT, () => {
+  console.log(`Server is running at ${PORT}`);
 });
