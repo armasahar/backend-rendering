@@ -13,7 +13,6 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "cloudflared": "^0.7.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
