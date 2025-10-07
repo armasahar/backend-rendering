@@ -54,7 +54,7 @@ let server = http.createServer((req, res) => {
           try {
             let data = [];
 
-            let fileData = fs.readFileSync("../database/data.json", (err) => {
+            let fileData = fs.readFileSync("./database/data.json", (err) => {
               if (err) console.log(err);
             });
 
@@ -64,7 +64,7 @@ let server = http.createServer((req, res) => {
 
             data.push(newData);
 
-            fs.writeFile("../database/data.json", JSON.stringify(data, null, 4), (err) => {
+            fs.writeFile("./database/data.json", JSON.stringify(data, null, 4), (err) => {
               if (err) console.log(err);
               else console.log("Data saved!");
             });
@@ -72,51 +72,11 @@ let server = http.createServer((req, res) => {
             console.log(error);
           }
 
-          // try {
-          //   let data = [];
-          //   if (fs.existsSync("./backend/database/data.json")) {
-          //     let filedata = fs.readFileSync(
-          //       "./backend/database/data.json",
-          //       "utf-8"
-          //     );
-          //     data = filedata ? JSON.parse(filedata) : [];
-          //   }
-
-          //   const new_data = JSON.parse(body);
-          //   data.push(new_data);
-
-          //   fs.writeFileSync(
-          //     "../database/data.json",
-          //     JSON.stringify(data, null, 2)
-          //   );
-          //   console.log("Data Saved!");
-
-          //   res.writeHead(
-          //     201,
-
-          //     { "Content-Type": "application/json" }
-          //   );
-
-          //   res.end(
-          //     JSON.stringify({
-          //       message: "Your information was sent, You'll be contacted soon!",
-          //     })
-          //   );
-          // } catch (error) {
-          //   console.error(error);
-          //   res.writeHead(500, { "Content-Type": "application/json" });
-          //   res.end(JSON.stringify({ error: "Internal Server Error" }));
-          // }
         });
       } else if (req.method == "GET") {
         res.statusCode = 200;
         res.end("End");
       }
-
-      // else {
-      //     res.statusCode = 405;
-      //     res.end('Method Not Allowed');
-      // }
       break;
     default:
       res.statusCode = 404;
