@@ -54,7 +54,7 @@ let server = http.createServer((req, res) => {
           try {
             let data = [];
 
-            let fileData = fs.readFileSync("./database/data.json", (err) => {
+            let fileData = fs.readFileSync("./data.json", (err) => {
               if (err) console.log(err);
             });
 
@@ -64,7 +64,7 @@ let server = http.createServer((req, res) => {
 
             data.push(newData);
 
-            fs.writeFile("./database/data.json", JSON.stringify(data, null, 4), (err) => {
+            fs.writeFile("./data.json", JSON.stringify(data, null, 4), (err) => {
               if (err) console.log(err);
               else console.log("Data saved!");
             });
